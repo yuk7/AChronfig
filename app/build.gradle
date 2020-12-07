@@ -8,6 +8,10 @@ android {
     compileSdkVersion 29
     buildToolsVersion "30.0.1"
 
+    dataBinding {
+        enabled = true
+    }
+
     defaultConfig {
         applicationId "com.github.yuk7.chronfig"
         minSdkVersion 16
@@ -43,6 +47,8 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'com.google.android.material:material:1.2.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0'
 
     def libsuVersion = '3.0.2'
     implementation "com.github.topjohnwu.libsu:core:${libsuVersion}"
@@ -52,6 +58,11 @@ dependencies {
     implementation "androidx.room:room-runtime:$room_version"
     kapt "androidx.room:room-compiler:$room_version"
     implementation "androidx.room:room-ktx:$room_version"
+
+    def epoxy_version = "4.3.1"
+    implementation "com.airbnb.android:epoxy:$epoxy_version"
+    implementation "com.airbnb.android:epoxy-databinding:${epoxy_version}"
+    kapt "com.airbnb.android:epoxy-processor:$epoxy_version"
 
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
