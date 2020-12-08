@@ -9,6 +9,7 @@ data class Config(
         var id: Int = 0,
         var name: String = "",
         var isUseCmd: Boolean = false,
-        var ua: String? = "",
-        var command: String? = ""
+        var command: String = "",
+        var ua: String = ""
+
 )

@@ -1,3 +1,5 @@
 package com.github.yuk7.chronfig.models
 
-data class UserConfigModel(val id: Int, override val name: String, val isUseCmd: Boolean, val ua: String?, val command: String?) : ItemModelInterface
+import com.github.yuk7.chronfig.data.repository.config.Config
+
+data class UserConfigModel(override val name: String = "", override val config: Config) : ItemModelInterface,UserConfigInterface

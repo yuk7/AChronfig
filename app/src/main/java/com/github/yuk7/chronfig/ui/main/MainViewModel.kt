@@ -16,4 +16,10 @@ class MainViewModel : ViewModel() {
             }
         }
     }
+
+    fun removeAll() {
+        list.apply {
+            this.value = emptyList()
+        }
+    }
 }
