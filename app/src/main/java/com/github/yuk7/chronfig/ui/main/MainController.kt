@@ -2,12 +2,10 @@ package com.github.yuk7.chronfig.ui.main
 
 import com.airbnb.epoxy.TypedEpoxyController
 import com.github.yuk7.chronfig.models.ItemModelInterface
-import com.github.yuk7.chronfig.models.UserConfigModel
 import com.github.yuk7.chronfig.uaItem
-import com.topjohnwu.superuser.io.SuFile
 
 class MainController(
-    private val listener: Listener
+        private val listener: Listener
 ) : TypedEpoxyController<List<ItemModelInterface>>() {
     override fun buildModels(data: List<ItemModelInterface>?) {
         requireNotNull(data)
