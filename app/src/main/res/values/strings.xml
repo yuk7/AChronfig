@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">chronfig</string>
+
+    <string name="main_fab_add">Add</string>
 </resources>
