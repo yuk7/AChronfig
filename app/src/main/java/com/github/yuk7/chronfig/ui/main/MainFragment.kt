@@ -1,7 +1,7 @@
 package com.github.yuk7.chronfig.ui.main
 
+import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -29,6 +29,7 @@ class MainFragment : Fragment(R.layout.fragment_main) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         binding = FragmentMainBinding.bind(view)
         mainViewModel = ViewModelProvider(this).get(MainViewModel::class.java)
+        binding.viewModel = mainViewModel
         binding.lifecycleOwner = viewLifecycleOwner
 
         controller = MainController(
@@ -50,6 +51,15 @@ class MainFragment : Fragment(R.layout.fragment_main) {
                     }
                 }
         )
+
+        mainViewModel.onStartActivity.observe(viewLifecycleOwner, Observer { value ->
+            val intent = Intent(context, value.first::class.java)
+            if (value.second != null) {
+                intent.putExtras(value.second!!)
+            }
+            startActivity(intent)
+        })
+
         binding.recyclerView.setController(controller)
 
         initListFromDB()
